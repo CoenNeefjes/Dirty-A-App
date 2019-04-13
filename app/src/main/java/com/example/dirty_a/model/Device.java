@@ -12,6 +12,10 @@ public class Device {
         this.channels = channels;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

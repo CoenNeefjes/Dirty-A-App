@@ -1,8 +1,8 @@
 package com.example.dirty_a.model;
 
-public class RGBFixture extends Device {
+public class RGBDevice extends Device {
 
-    public RGBFixture(long id, String name, int[] channels) {
+    public RGBDevice(long id, String name, int[] channels) {
         super(id, name, channels);
     }
 
