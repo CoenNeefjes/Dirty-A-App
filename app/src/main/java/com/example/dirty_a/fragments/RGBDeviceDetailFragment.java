@@ -93,6 +93,7 @@ public class RGBDeviceDetailFragment extends Fragment {
         // 0 is the id for all the rgb devices combined
         if (device_id == 0) {
             rgbDevices = DeviceDataProvider.getInstance().getRGBDevices();
+            System.out.println("Controlling " + rgbDevices.size() + " devices in the RGB Service fragment");
         } else {
             Device device = DeviceDataProvider.getInstance().getDeviceById(device_id);
             if (device instanceof RGBDevice) {

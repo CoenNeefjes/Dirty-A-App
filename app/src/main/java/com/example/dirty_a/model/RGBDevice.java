@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.android.volley.Request;
 import com.example.dirty_a.callbacks.JsonObjectCallback;
+import com.example.dirty_a.settings.ApiSettings;
 import com.example.dirty_a.volley.RequestHandler;
 
 import org.json.JSONArray;
@@ -43,18 +44,20 @@ public class RGBDevice extends Device {
             throw new RuntimeException("RGBDevice changeColor: too many or too few channels given as argument");
         }
 
-        RequestHandler.standardJsonObjectRequest(context, Request.Method.GET, "http://residentiedirtya.student.utwente.nl:9090/get_dmx?u=1", null, new JsonObjectCallback() {
+        RequestHandler.standardJsonObjectRequest(context, Request.Method.GET, ApiSettings.BASE_URL + "get_dmx?u=" + ApiSettings.UNIVERSE, null, new JsonObjectCallback() {
             @Override
             public void processFinished(JSONObject response) {
                 System.out.println("Get response: " + response);
 
                 String updatedChannels = updateChannels(getChannelsFromResponse(response), rgb);
 
+                System.out.println("Sending: " + updatedChannels);
+
                 Map<String, String> params = new HashMap<>();
                 params.put("u", "1");
                 params.put("d", updatedChannels.substring(1, updatedChannels.length()-1));
 
-                RequestHandler.customStringRequest(context, Request.Method.POST, "http://residentiedirtya.student.utwente.nl:9090/set_dmx", params, null);
+                RequestHandler.customStringRequest(context, Request.Method.POST, ApiSettings.BASE_URL + "set_dmx", params, null);
             }
         });
     }

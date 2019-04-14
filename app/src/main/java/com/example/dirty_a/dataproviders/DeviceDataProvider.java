@@ -47,7 +47,7 @@ public class DeviceDataProvider {
     public List<RGBDevice> getRGBDevices() {
         List<RGBDevice> rgbDevices = new ArrayList<>();
         for (Device device : devices) {
-            if (device instanceof RGBDevice) {
+            if (device instanceof RGBDevice && device.getId() != 0) {
                 rgbDevices.add((RGBDevice) device);
             }
         }
