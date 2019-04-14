@@ -44,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rgb_device_turn_on_off_btn"
-        app:srcCompat="@color/colorPrimary" />
+        app:srcCompat="@android:color/background_light" />
 
     <Button
         android:id="@+id/rgb_device_change_color_btn"

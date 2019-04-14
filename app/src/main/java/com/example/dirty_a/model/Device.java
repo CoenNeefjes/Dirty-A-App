@@ -1,12 +1,14 @@
 package com.example.dirty_a.model;
 
+import java.util.List;
+
 public class Device {
 
     protected long id;
     protected String name;
-    protected int[] channels;
+    protected List<Integer> channels;
 
-    public Device(long id, String name, int[] channels) {
+    public Device(long id, String name, List<Integer> channels) {
         this.id = id;
         this.name = name;
         this.channels = channels;
@@ -18,5 +20,9 @@ public class Device {
 
     public String getName() {
         return name;
+    }
+
+    public List<Integer> getChannels() {
+        return channels;
     }
 }

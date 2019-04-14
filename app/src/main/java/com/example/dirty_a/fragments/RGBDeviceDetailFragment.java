@@ -18,6 +18,7 @@ import com.example.dirty_a.model.Device;
 import com.example.dirty_a.model.RGBDevice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import me.priyesh.chroma.ChromaDialog;
@@ -33,6 +34,7 @@ public class RGBDeviceDetailFragment extends Fragment {
     // Data
     private List<RGBDevice> rgbDevices;
     private long device_id;
+    private int currentColorInt = -16777216;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,17 +62,31 @@ public class RGBDeviceDetailFragment extends Fragment {
         getDevice();
         setUIData();
 
-        changeColorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new ChromaDialog.Builder()
-                        .initialColor(Color.GREEN)
-                        .colorMode(ColorMode.ARGB) // There's also ARGB and HSV
-                        .onColorSelected(color -> System.out.println(color))
-                        .create()
-                        .show(getActivity().getSupportFragmentManager(), "ChromaDialog");
-            }
-        });
+        changeColorButton.setOnClickListener(v -> new ChromaDialog.Builder()
+                .initialColor(currentColorInt)
+                .colorMode(ColorMode.ARGB)
+                .onColorSelected(color -> setNewColor(color))
+                .create()
+                .show(getActivity().getSupportFragmentManager(), "ColorPickerDialog"));
+    }
+
+    private void setNewColor(int colorInt) {
+        System.out.println("Selected color int: " + colorInt);
+        currentColorInt = colorInt;
+
+        int red = Color.red(colorInt);
+        int green = Color.green(colorInt);
+        int blue = Color.blue(colorInt);
+        int alpha = Color.alpha(colorInt);
+        System.out.println("r=" + red + ", g=" + green + ", b=" + blue + ", a=" + alpha);
+
+        String hexColor = Integer.toHexString(colorInt).toUpperCase();
+        System.out.println("New color in hex:" + hexColor);
+        colorPreview.setColorFilter(colorInt);
+
+        for (RGBDevice rgbDevice : rgbDevices) {
+            rgbDevice.changeColor(getContext(), Arrays.asList(red, green, blue));
+        }
     }
 
     private void getDevice() {
@@ -99,9 +115,5 @@ public class RGBDeviceDetailFragment extends Fragment {
         onOffButton.setEnabled(false);
 
         //TODO: request the state of the device to set the image color preview
-    }
-
-    private void changeColor() {
-
     }
 }
