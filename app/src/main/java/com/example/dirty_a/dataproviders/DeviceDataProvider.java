@@ -40,8 +40,8 @@ public class DeviceDataProvider {
                 return device;
             }
         }
-        //TODO: throw exception
-        return null;
+        //TODO: throw better exception
+        throw new RuntimeException("Device with id " + id + " could not be found");
     }
 
     public List<RGBDevice> getRGBDevices() {
