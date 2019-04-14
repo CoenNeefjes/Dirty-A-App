@@ -24,7 +24,7 @@ public class DeviceDataProvider {
 
     private void setTestData() {
         List<Device> devicesToAdd = new ArrayList<>();
-        devicesToAdd.add(new RGBDevice(0, "All_lamps", Arrays.asList(-1, -1, -1)));
+//        devicesToAdd.add(new RGBDevice(0, "All_lamps", Arrays.asList(-1, -1, -1)));
         devicesToAdd.add(new RGBDevice(1, "RGB_lamp_1", Arrays.asList(0,1,2)));
         devicesToAdd.add(new RGBDevice(2, "RGB_lamp_2", Arrays.asList(3,4,5)));
         devices.addAll(devicesToAdd);

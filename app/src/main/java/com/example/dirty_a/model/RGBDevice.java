@@ -84,7 +84,7 @@ public class RGBDevice extends Device {
     private String updateChannels(List<Integer> channels, List<Integer> rgbValues) {
 
         // Update the list of channels with the rgbValues
-        for (int i=0; i<getChannels().size(); i++) {
+        for (int i=0; i<rgbValues.size(); i++) {
             channels.set(getChannels().get(i), rgbValues.get(i));
         }
 

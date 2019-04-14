@@ -12,14 +12,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.example.dirty_a.R;
+import com.example.dirty_a.callbacks.JsonObjectCallback;
 import com.example.dirty_a.dataproviders.DeviceDataProvider;
 import com.example.dirty_a.model.Device;
 import com.example.dirty_a.model.RGBDevice;
+import com.example.dirty_a.settings.ApiSettings;
+import com.example.dirty_a.volley.RequestHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import me.priyesh.chroma.ChromaDialog;
 import me.priyesh.chroma.ColorMode;
@@ -35,6 +45,7 @@ public class RGBDeviceDetailFragment extends Fragment {
     private List<RGBDevice> rgbDevices;
     private long device_id;
     private int currentColorInt = -16777216;
+    private boolean isOn = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,6 +79,18 @@ public class RGBDeviceDetailFragment extends Fragment {
                 .onColorSelected(color -> setNewColor(color))
                 .create()
                 .show(getActivity().getSupportFragmentManager(), "ColorPickerDialog"));
+
+        onOffButton.setOnClickListener(v -> {
+            if (isOn) {
+                setNewColor(Color.BLACK);
+                isOn = false;
+                onOffButton.setText("Turn on");
+            } else {
+                setNewColor(Color.WHITE);
+                isOn = true;
+                onOffButton.setText("Turn off");
+            }
+        });
     }
 
     private void setNewColor(int colorInt) {
@@ -112,9 +135,46 @@ public class RGBDeviceDetailFragment extends Fragment {
             nameText.setText(rgbDevices.get(0).getName());
         }
 
-        //TODO: request the state of the device and set button accordingly
-        onOffButton.setEnabled(false);
-
         //TODO: request the state of the device to set the image color preview
+        RequestHandler.standardJsonObjectRequest(getContext(), Request.Method.GET, ApiSettings.BASE_URL + "get_dmx?u=" + ApiSettings.UNIVERSE, null, new JsonObjectCallback() {
+            @Override
+            public void processFinished(JSONObject response) {
+                System.out.println("Get response: " + response);
+
+                List<Integer> channelList = getChannelsFromResponse(response);
+                List<Integer> deviceChannels = rgbDevices.get(0).getChannels();
+
+                Integer red = channelList.get(deviceChannels.get(0));
+                Integer green = channelList.get(deviceChannels.get(1));
+                Integer blue = channelList.get(deviceChannels.get(2));
+
+                currentColorInt = Color.rgb(red, green, blue);
+                colorPreview.setColorFilter(currentColorInt);
+
+                if (red != 0 || green != 0 || blue != 0) {
+                    onOffButton.setText("Turn off");
+                    isOn = true;
+                }
+            }
+        });
+    }
+
+    private List<Integer> getChannelsFromResponse(JSONObject response) {
+        List<Integer> result = new ArrayList<>();
+        try {
+            // Get the JSON array from the response
+            JSONArray channels = response.getJSONArray("dmx");
+
+            // Get a list of Integers from the array
+            if (channels != null) {
+                int len = channels.length();
+                for (int i = 0; i < len; i++) {
+                    result.add((Integer) channels.get(i));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
