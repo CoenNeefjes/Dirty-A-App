@@ -47,15 +47,10 @@ public class RGBDeviceDetailFragment extends Fragment {
     private int currentColorInt = -16777216;
     private boolean isOn = false;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActivity().setTitle("RGB Device");
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle("RGB Device");
         device_id = getArguments().getLong("device_id");
         return inflater.inflate(R.layout.fragment_rgb_device_detail, container, false);
     }

@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.dirty_a.fragments.DeviceListFragment;
+import com.example.dirty_a.fragments.WelcomeFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity
         // Set this as the itemSelectedListener for the drawer menu
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        transitionFragment(new WelcomeFragment(), false);
     }
 
     @Override
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        // Prevent the backStack from filling with the same fragment over and over
         if (previousNavigationId == id) {
             navigateTo(id, false);
         } else {
@@ -110,6 +114,10 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+        transitionFragment(fragment, allowedOnBackStack);
+    }
+
+    private void transitionFragment(Fragment fragment, boolean allowedOnBackStack) {
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_main, fragment);

@@ -24,15 +24,10 @@ public class DeviceListFragment extends Fragment {
     private ListView listView;
     private List<Device> devices;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getActivity().setTitle("Device List");
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle("Device List");
         return inflater.inflate(R.layout.fragment_device_list, container, false);
     }
 
