@@ -50,10 +50,19 @@ public class DeviceListFragment extends Fragment {
     }
 
     private void viewDevice(int index) {
-        Bundle bundle = new Bundle();
-        bundle.putLong("device_id", devices.get(index).getId());
+        Device device = devices.get(index);
 
-        RGBDeviceDetailFragment nextFragment = new RGBDeviceDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putLong("device_id", device.getId());
+
+        if (device.getName().equals("Laser")) {
+            changeFragment(new LaserFragment(), bundle);
+        } else {
+            changeFragment(new RGBDeviceDetailFragment(), bundle);
+        }
+    }
+
+    private void changeFragment(Fragment nextFragment, Bundle bundle) {
         nextFragment.setArguments(bundle);
 
         getActivity().getSupportFragmentManager().beginTransaction()

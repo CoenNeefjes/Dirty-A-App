@@ -1,6 +1,7 @@
 package com.example.dirty_a.dataproviders;
 
 import com.example.dirty_a.model.Device;
+import com.example.dirty_a.model.Laser;
 import com.example.dirty_a.model.RGBDevice;
 
 import java.util.ArrayList;
@@ -25,8 +26,9 @@ public class DeviceDataProvider {
     private void setTestData() {
         List<Device> devicesToAdd = new ArrayList<>();
 //        devicesToAdd.add(new RGBDevice(0, "All_lamps", Arrays.asList(-1, -1, -1)));
-        devicesToAdd.add(new RGBDevice(1, "RGB_lamp_1", Arrays.asList(0,1,2)));
-        devicesToAdd.add(new RGBDevice(2, "RGB_lamp_2", Arrays.asList(3,4,5)));
+        devicesToAdd.add(new RGBDevice(1, "Bar hemel", Arrays.asList(0,1,2)));
+        devicesToAdd.add(new RGBDevice(2, "Midden woonkamer", Arrays.asList(3,4,5)));
+        devicesToAdd.add(new Laser(3, "Laser", Arrays.asList(30, 31, 32, 33, 34, 35, 36, 37)));
         devices.addAll(devicesToAdd);
     }
 

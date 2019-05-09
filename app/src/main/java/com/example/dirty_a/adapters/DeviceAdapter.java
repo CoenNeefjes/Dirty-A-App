@@ -38,8 +38,11 @@ public class DeviceAdapter extends ArrayAdapter<Device> {
         Device device = devices.get(position);
 
         ImageView image = convertView.findViewById(R.id.deviceImage);
-        TextView name = convertView.findViewById(R.id.deviceNameText);
+        if (device.getName().equals("Laser")) {
+            image.setImageResource(R.drawable.ic_laser);
+        }
 
+        TextView name = convertView.findViewById(R.id.deviceNameText);
         name.setText(device.getName());
 
         return convertView;
