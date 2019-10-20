@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.dirty_a.fragments.CookingOverviewFragment;
 import com.example.dirty_a.fragments.DeviceListFragment;
 import com.example.dirty_a.fragments.WelcomeFragment;
 
@@ -101,17 +102,15 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
 
-        if (id == R.id.nav_device_list) {
+        if (id == R.id.nav_lights) {
             fragment = new DeviceListFragment();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_cooking) {
+            fragment = new CookingOverviewFragment();
+        } else if (id == R.id.nav_balance) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_logout) {
 
         }
 

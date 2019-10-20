@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/cooking_overview_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Date"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_cook_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cooking_overview_left_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_date"
+        app:layout_constraintEnd_toStartOf="@+id/cooking_overview_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_date" />
+
+    <Button
+        android:id="@+id/cooking_overview_right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cooking_overview_date"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_date" />
+
+    <TextView
+        android:id="@+id/cooking_overview_cook_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Cook:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_enrolled_number"
+        app:layout_constraintEnd_toStartOf="@+id/cooking_overview_cook_name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_date" />
+
+    <TextView
+        android:id="@+id/cooking_overview_cook_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_cook_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cooking_overview_cook_text"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_cook_text" />
+
+    <TextView
+        android:id="@+id/cooking_overview_enrolled_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="5"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_enrolled_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_cook_text" />
+
+    <TextView
+        android:id="@+id/cooking_overview_enrolled_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Enrolled"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_person1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_enrolled_number" />
+
+    <Button
+        android:id="@+id/cooking_overview_enroll_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Enroll"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_unenroll_btn"
+        app:layout_constraintEnd_toStartOf="@+id/cooking_overview_enroll_cook_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cooking_overview_unenroll_btn"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_unenroll_btn" />
+
+    <Button
+        android:id="@+id/cooking_overview_unenroll_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Unenroll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cooking_overview_enroll_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_person7" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Person 1"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_person3"
+        app:layout_constraintEnd_toStartOf="@+id/cooking_overview_person2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_enrolled_text" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 2"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_person1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cooking_overview_person1"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_person1" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 3"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_person5"
+        app:layout_constraintEnd_toEndOf="@+id/cooking_overview_person1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/cooking_overview_person1"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_person1" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 4"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_person3"
+        app:layout_constraintEnd_toEndOf="@+id/cooking_overview_person2"
+        app:layout_constraintStart_toStartOf="@+id/cooking_overview_person2"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_person3" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 5"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_person7"
+        app:layout_constraintEnd_toEndOf="@+id/cooking_overview_person3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/cooking_overview_person3"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_person3" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 6"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_person5"
+        app:layout_constraintEnd_toEndOf="@+id/cooking_overview_person4"
+        app:layout_constraintStart_toStartOf="@+id/cooking_overview_person4"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_person5" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 7"
+        app:layout_constraintBottom_toTopOf="@+id/cooking_overview_unenroll_btn"
+        app:layout_constraintEnd_toEndOf="@+id/cooking_overview_person5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/cooking_overview_person5"
+        app:layout_constraintTop_toBottomOf="@+id/cooking_overview_person5" />
+
+    <TextView
+        android:id="@+id/cooking_overview_person8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person 8"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_person7"
+        app:layout_constraintEnd_toEndOf="@+id/cooking_overview_person6"
+        app:layout_constraintStart_toStartOf="@+id/cooking_overview_person6"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_person7" />
+
+    <Button
+        android:id="@+id/cooking_overview_enroll_cook_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Enroll Cook"
+        app:layout_constraintBottom_toBottomOf="@+id/cooking_overview_enroll_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cooking_overview_enroll_btn"
+        app:layout_constraintTop_toTopOf="@+id/cooking_overview_enroll_btn" />
+</android.support.constraint.ConstraintLayout>
