@@ -102,7 +102,9 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
 
-        if (id == R.id.nav_lights) {
+        if (id == R.id.nav_home) {
+            fragment = new WelcomeFragment();
+        } else if (id == R.id.nav_lights) {
             fragment = new DeviceListFragment();
         } else if (id == R.id.nav_cooking) {
             fragment = new CookingOverviewFragment();
