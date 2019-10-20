@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.dirty_a.fragments.BalanceOverviewFragment;
 import com.example.dirty_a.fragments.CookingOverviewFragment;
 import com.example.dirty_a.fragments.DeviceListFragment;
 import com.example.dirty_a.fragments.WelcomeFragment;
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_cooking) {
             fragment = new CookingOverviewFragment();
         } else if (id == R.id.nav_balance) {
-
+            fragment = new BalanceOverviewFragment();
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
