@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/balance_overview_euro_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -18,83 +18,147 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/balance_overview_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="35,42"
         android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/balance_overview_euro_text"
+        app:layout_constraintStart_toEndOf="@+id/balance_overview_euro_text"
+        app:layout_constraintTop_toTopOf="@+id/balance_overview_euro_text" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/balance_overview_highest_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="House highest"
-        app:layout_constraintEnd_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintEnd_toStartOf="@+id/balance_overview_highest"
+        app:layout_constraintTop_toTopOf="@+id/balance_overview_balance" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/balance_overview_lowest_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="House lowest"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView16" />
+        app:layout_constraintBottom_toBottomOf="@+id/balance_overview_balance"
+        app:layout_constraintStart_toStartOf="@+id/balance_overview_highest_text" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/balance_overview_highest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="name1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
+        app:layout_constraintBottom_toBottomOf="@+id/balance_overview_highest_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+        app:layout_constraintTop_toTopOf="@+id/balance_overview_highest_text" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/balance_overview_lowest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="name2"
-        app:layout_constraintBottom_toBottomOf="@+id/textView17"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="@+id/textView17" />
+        app:layout_constraintBottom_toBottomOf="@+id/balance_overview_lowest_text"
+        app:layout_constraintStart_toStartOf="@+id/balance_overview_highest"
+        app:layout_constraintTop_toTopOf="@+id/balance_overview_lowest_text" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/balance_overview_transactions_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Your Latest Transactions"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/balance_overview_euro_text"
+        app:layout_constraintTop_toBottomOf="@+id/balance_overview_balance" />
+
+    <TableLayout
+        android:id="@+id/balance_overview_headers_table"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance_overview_transactions_text">
+
+        <TableRow android:id="@+id/balance_overview_headers_row">
+
+            <TextView
+                android:id="@+id/balance_overview_date_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/balance_overview_owner_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Owner"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/balance_overview_description_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Description"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/balance_overview_amount_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Amount"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
 
     <ScrollView
-        android:layout_width="409dp"
+        android:id="@+id/balance_overview_scroll_view"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintBottom_toTopOf="@+id/balance_overview_add_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance_overview_headers_table"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/balance_overview_transaction_table"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableLayout>
+        </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/balance_overview_add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Add Transaction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

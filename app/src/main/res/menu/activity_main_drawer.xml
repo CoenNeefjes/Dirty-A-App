@@ -9,10 +9,6 @@
             android:icon="@drawable/ic_menu_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_lights"
-            android:icon="@drawable/ic_menu_lightbulb_outline"
-            android:title="Lights" />
-        <item
             android:id="@+id/nav_cooking"
             android:icon="@drawable/ic_menu_restaurant"
             android:title="Cooking" />
@@ -20,6 +16,10 @@
             android:id="@+id/nav_balance"
             android:icon="@drawable/ic_menu_euro_symbol"
             android:title="Balance" />
+        <item
+            android:id="@+id/nav_lights"
+            android:icon="@drawable/ic_menu_lightbulb_outline"
+            android:title="Lights" />
     </group>
 
     <item android:title="Settings">
