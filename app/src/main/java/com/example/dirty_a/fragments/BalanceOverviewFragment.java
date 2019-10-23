@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +17,8 @@ import com.example.dirty_a.R;
 import com.example.dirty_a.dataproviders.TransactionDataProvider;
 import com.example.dirty_a.model.Transaction;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,10 +62,10 @@ public class BalanceOverviewFragment extends Fragment {
     private TableRow createTableRow(Transaction transaction, boolean hasEvenIndex) {
         TableRow tableRow = new TableRow(this.getContext());
 
-        tableRow.addView(createTableRowTextView(this.dateFormat.format(transaction.getDate()), 1f), 0);
-        tableRow.addView(createTableRowTextView(transaction.getOwner(), 1f), 1);
-        tableRow.addView(createTableRowTextView(transaction.getDescription(), 2f), 2);
-        tableRow.addView(createTableRowTextView(transaction.getAmount().toPlainString(), 1f), 3);
+        tableRow.addView(createTableRowTextView(this.dateFormat.format(transaction.getDate()), 1f, null));
+        tableRow.addView(createTableRowTextView(transaction.getOwner(), 1f, null));
+        tableRow.addView(createTableRowTextView(transaction.getDescription(), 2f, null));
+        tableRow.addView(createTableRowTextView(formatPrice(transaction.getAmount()), 1f, transaction.getAmount().compareTo(BigDecimal.ZERO) > 0 ? R.color.greenText : R.color.redText));
 
         if (hasEvenIndex) {
             tableRow.setBackgroundColor(Color.parseColor("#f1f1f1"));
@@ -74,11 +74,28 @@ public class BalanceOverviewFragment extends Fragment {
         return tableRow;
     }
 
-    private TextView createTableRowTextView(String text, float weight) {
+    private TextView createTableRowTextView(String text, float weight, @Nullable Integer textColor) {
         TextView textView = new TextView(this.getContext());
         textView.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, weight));
+        textView.setPadding(5,0,5,0);
         textView.setText(text);
+
+        if (textColor != null) {
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextColor(textColor);
+        }
+
         return textView;
+    }
+
+    private String formatPrice(BigDecimal bigDecimal) {
+        String result = bigDecimal.toString();
+        if (result.contains(".")) {
+            if (result.split("\\.")[1].length() == 1) {
+                result += "0";
+            }
+        }
+        return result;
     }
 
 }

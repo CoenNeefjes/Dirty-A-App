@@ -3,6 +3,7 @@ package com.example.dirty_a.model;
 import android.content.Context;
 
 import com.android.volley.Request;
+import com.android.volley.VolleyError;
 import com.example.dirty_a.callbacks.JsonObjectCallback;
 import com.example.dirty_a.settings.ApiSettings;
 import com.example.dirty_a.volley.RequestHandler;
@@ -58,6 +59,11 @@ public class RGBDevice extends Device {
                 params.put("d", updatedChannels.substring(1, updatedChannels.length()-1));
 
                 RequestHandler.customStringRequest(context, Request.Method.POST, ApiSettings.BASE_URL + "set_dmx", params, null);
+            }
+
+            @Override
+            public void processFailed(VolleyError error) {
+
             }
         });
     }

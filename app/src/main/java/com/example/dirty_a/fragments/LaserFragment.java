@@ -12,6 +12,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
+import com.android.volley.VolleyError;
 import com.example.dirty_a.R;
 import com.example.dirty_a.callbacks.JsonObjectCallback;
 import com.example.dirty_a.dataproviders.DeviceDataProvider;
@@ -111,6 +112,11 @@ public class LaserFragment extends Fragment {
                 for (int i = 0; i < seekBars.size(); i++) {
                     seekBars.get(i).setProgress(channelList.get(deviceChannels.get(i)));
                 }
+            }
+
+            @Override
+            public void processFailed(VolleyError error) {
+
             }
         });
     }

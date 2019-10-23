@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
+import com.android.volley.VolleyError;
 import com.example.dirty_a.R;
 import com.example.dirty_a.callbacks.JsonObjectCallback;
 import com.example.dirty_a.dataproviders.DeviceDataProvider;
@@ -150,6 +151,11 @@ public class RGBDeviceDetailFragment extends Fragment {
                     onOffButton.setText("Turn off");
                     isOn = true;
                 }
+            }
+
+            @Override
+            public void processFailed(VolleyError error) {
+
             }
         });
     }
