@@ -4,11 +4,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -27,6 +31,7 @@ public class BalanceOverviewFragment extends Fragment {
 
     // UI elements
     private TableLayout transactionTable;
+    private Button addTransactionButton;
 
     // Data
     private List<Transaction> transactions = new ArrayList<>();
@@ -43,8 +48,16 @@ public class BalanceOverviewFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // Set correct navigation drawer entry
+        NavigationView navigationView = getActivity().findViewById(R.id.nav_view);
+        navigationView.setCheckedItem(R.id.nav_balance);
+
         // Set UI elements
         transactionTable = getActivity().findViewById(R.id.balance_overview_transaction_table);
+        addTransactionButton = getActivity().findViewById(R.id.balance_overview_add_btn);
+
+        // Set onClickListeners
+        addTransactionButton.setOnClickListener(v -> goToAddTransactionFragment());
 
         // Get test data
         this.transactions.addAll(TransactionDataProvider.getInstance().getTransactions());
@@ -97,5 +110,14 @@ public class BalanceOverviewFragment extends Fragment {
         }
         return result;
     }
+
+    private void goToAddTransactionFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(((ViewGroup) (getView().getParent())).getId(), new AddTransactionFragment(), "BalanceOverviewFragment")
+                .addToBackStack(null)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit();
+    }
+
 
 }

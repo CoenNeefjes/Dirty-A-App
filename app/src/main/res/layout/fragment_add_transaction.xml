@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/add_transaction_price_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Price"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_add_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person8_left" />
+
+    <Button
+        android:id="@+id/add_transaction_add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_price_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_price_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_price_edit_text" />
+
+    <EditText
+        android:id="@+id/add_transaction_description_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person1_amount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/add_transaction_person1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="person1"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person2"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person1_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_description_edit_text" />
+
+    <TextView
+        android:id="@+id/add_transaction_person1_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person1"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person1" />
+
+    <TextView
+        android:id="@+id/add_transaction_person1_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person1_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person1_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person1_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person1_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person1_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person1_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person1_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="person2"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person3"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person2_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person1" />
+
+    <TextView
+        android:id="@+id/add_transaction_person2_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person2"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person2" />
+
+    <TextView
+        android:id="@+id/add_transaction_person2_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person2_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person2_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person2_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person2_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person2_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person2_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person2_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="person3"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person4"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person3_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person2" />
+
+    <TextView
+        android:id="@+id/add_transaction_person3_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person3_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person3_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person3_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person3_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person3"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person3" />
+
+    <TextView
+        android:id="@+id/add_transaction_person3_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person3_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person3_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person3_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="person4"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person5"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person4_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person3" />
+
+    <TextView
+        android:id="@+id/add_transaction_person4_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person4_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person4_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person4_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person4_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person4"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person4" />
+
+    <TextView
+        android:id="@+id/add_transaction_person4_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person4_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person4_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person4_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="person5"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person6"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person5_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person4" />
+
+    <TextView
+        android:id="@+id/add_transaction_person5_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person5_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person5_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person5_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person5_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person5"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person5" />
+
+    <TextView
+        android:id="@+id/add_transaction_person5_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person5_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person5_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person5_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="person7"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person8"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person7_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person6" />
+
+    <TextView
+        android:id="@+id/add_transaction_person7_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person7_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person7_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person7_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person7_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person7"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person7" />
+
+    <TextView
+        android:id="@+id/add_transaction_person7_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person7_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person7_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person7_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="person6"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_person7"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person6_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person5" />
+
+    <TextView
+        android:id="@+id/add_transaction_person6_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person6"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person6" />
+
+    <TextView
+        android:id="@+id/add_transaction_person6_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person6_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person6_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person6_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person6_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person6_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person6_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person6_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="person8"
+        app:layout_constraintBottom_toTopOf="@+id/add_transaction_price_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person8_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_transaction_person7" />
+
+    <TextView
+        android:id="@+id/add_transaction_person8_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person8"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person8" />
+
+    <TextView
+        android:id="@+id/add_transaction_person8_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&lt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person8_amount"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_person8_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person8_amount" />
+
+    <TextView
+        android:id="@+id/add_transaction_person8_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="&gt;"
+        app:layout_constraintBottom_toBottomOf="@+id/add_transaction_person8_amount"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_person8_amount"
+        app:layout_constraintTop_toTopOf="@+id/add_transaction_person8_amount" />
+
+
+</android.support.constraint.ConstraintLayout>
