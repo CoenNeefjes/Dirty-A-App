@@ -32,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
         // Set the shared preferences
         sharedPreferences = getSharedPreferences(SharedPreferencesSettings.PREFERENCES_KEY, MODE_PRIVATE);
@@ -42,6 +40,9 @@ public class LoginActivity extends AppCompatActivity {
         if (sharedPreferences.contains(SharedPreferencesSettings.USERNAME_KEY) && sharedPreferences.contains(SharedPreferencesSettings.PASSWORD_KEY)) {
             login(sharedPreferences.getString(SharedPreferencesSettings.USERNAME_KEY, null), sharedPreferences.getString(SharedPreferencesSettings.PASSWORD_KEY, null));
         }
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
         // Set UI elements
         signInButton = findViewById(R.id.login_sign_in_btn);
@@ -75,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
             }
             @Override
             public void processFailed(VolleyError error) {

@@ -1,5 +1,7 @@
 package com.example.dirty_a;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +21,7 @@ import com.example.dirty_a.fragments.BalanceOverviewFragment;
 import com.example.dirty_a.fragments.CookingOverviewFragment;
 import com.example.dirty_a.fragments.DeviceListFragment;
 import com.example.dirty_a.fragments.WelcomeFragment;
+import com.example.dirty_a.settings.SharedPreferencesSettings;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
-
+            logout();
         }
 
         transitionFragment(fragment, allowedOnBackStack);
@@ -133,6 +136,12 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void logout() {
+        getSharedPreferences(SharedPreferencesSettings.PREFERENCES_KEY, MODE_PRIVATE).edit().clear().apply();
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        finish();
     }
 
 

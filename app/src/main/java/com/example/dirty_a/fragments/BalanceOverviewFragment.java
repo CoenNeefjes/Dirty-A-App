@@ -65,7 +65,7 @@ public class BalanceOverviewFragment extends Fragment {
         tableRow.addView(createTableRowTextView(this.dateFormat.format(transaction.getDate()), 1f, null));
         tableRow.addView(createTableRowTextView(transaction.getOwner(), 1f, null));
         tableRow.addView(createTableRowTextView(transaction.getDescription(), 2f, null));
-        tableRow.addView(createTableRowTextView(formatPrice(transaction.getAmount()), 1f, transaction.getAmount().compareTo(BigDecimal.ZERO) > 0 ? R.color.greenText : R.color.redText));
+        tableRow.addView(createTableRowTextView(formatPrice(transaction.getAmount()), 1f, transaction.getAmount().compareTo(BigDecimal.ZERO) > 0 ? Color.parseColor("#006400") : Color.parseColor("#ff0000")));
 
         if (hasEvenIndex) {
             tableRow.setBackgroundColor(Color.parseColor("#f1f1f1"));
