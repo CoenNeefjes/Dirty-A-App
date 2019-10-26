@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DirtyA.iml" filepath="$PROJECT_DIR$/DirtyA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dirty-A-App.iml" filepath="$PROJECT_DIR$/Dirty-A-App.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

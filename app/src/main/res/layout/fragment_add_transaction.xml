@@ -7,14 +7,15 @@
 
     <EditText
         android:id="@+id/add_transaction_price_edit_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Price"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_transaction_add_btn"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_transaction_person8_left" />
 
@@ -22,12 +23,11 @@
         android:id="@+id/add_transaction_add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="@+id/add_transaction_price_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/add_transaction_price_edit_text"
         app:layout_constraintTop_toTopOf="@+id/add_transaction_price_edit_text" />
 
     <EditText

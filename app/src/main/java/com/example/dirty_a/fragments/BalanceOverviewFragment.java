@@ -119,5 +119,4 @@ public class BalanceOverviewFragment extends Fragment {
                 .commit();
     }
 
-
 }

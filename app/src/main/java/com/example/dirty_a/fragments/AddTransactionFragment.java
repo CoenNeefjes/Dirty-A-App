@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +84,9 @@ public class AddTransactionFragment extends Fragment {
 
         setOnClickListeners(leftArrows, false);
         setOnClickListeners(rightArrows, true);
+
+        // Add send request to this onClickListener
+        addButton.setOnClickListener(v -> goToBalanceOverview());
     }
 
     private void setOnClickListeners(List<TextView> views, boolean increaseOnClick) {
@@ -95,7 +99,20 @@ public class AddTransactionFragment extends Fragment {
     private void updateAmount(int index, boolean increase) {
         TextView textView = amounts.get(index);
         int amount = Integer.parseInt(textView.getText().toString()) + (increase ? 1 : -1);
+
+        // Prevent negative numbers
+        if (amount < 0) {
+            amount = 0;
+        }
+
         textView.setText(String.valueOf(amount));
+    }
+
+    private void goToBalanceOverview() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(((ViewGroup) (getView().getParent())).getId(), new BalanceOverviewFragment(), "AddTransactionFragment")
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit();
     }
 
 }

@@ -1,13 +1,9 @@
 package com.example.dirty_a;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.dirty_a.fragments.BalanceOverviewFragment;
 import com.example.dirty_a.fragments.CookingOverviewFragment;
@@ -23,10 +21,10 @@ import com.example.dirty_a.fragments.DeviceListFragment;
 import com.example.dirty_a.fragments.WelcomeFragment;
 import com.example.dirty_a.settings.SharedPreferencesSettings;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private int previousNavigationId; // Keep track of the navigation
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +45,10 @@ public class MainActivity extends AppCompatActivity
         // Set this as the itemSelectedListener for the drawer menu
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        // Set the email address in the navigation header of the drawer menu
+        View headerView = navigationView.getHeaderView(0);
+        TextView navHeaderMainEmail = headerView.findViewById(R.id.nav_header_main_email);
+        navHeaderMainEmail.setText("This is an email");
 
         // Open the welcome fragment
         transitionFragment(new WelcomeFragment(), false);
@@ -55,11 +57,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        // Close drawer when it is open
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            previousNavigationId = 0;
-            super.onBackPressed();
+            // Check if there is an item in the back stack
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                super.onBackPressed();
+            } else {
+                getSupportFragmentManager().popBackStack();
+            }
         }
     }
 
@@ -85,20 +92,11 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    // Handle navigation view item clicks here.
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        // Prevent the backStack from filling with the same fragment over and over
-        if (previousNavigationId == id) {
-            navigateTo(id, false);
-        } else {
-            navigateTo(id, true);
-        }
-
-        previousNavigationId = id;
-
+        navigateTo(id, false);
         return true;
     }
 
@@ -135,7 +133,7 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 

@@ -32,16 +32,19 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         // Set the shared preferences
         sharedPreferences = getSharedPreferences(SharedPreferencesSettings.PREFERENCES_KEY, MODE_PRIVATE);
 
         // If we already have the credentials do a login
         if (sharedPreferences.contains(SharedPreferencesSettings.USERNAME_KEY) && sharedPreferences.contains(SharedPreferencesSettings.PASSWORD_KEY)) {
+            setTitle("");
+            setContentView(R.layout.loading_screen);
             login(sharedPreferences.getString(SharedPreferencesSettings.USERNAME_KEY, null), sharedPreferences.getString(SharedPreferencesSettings.PASSWORD_KEY, null));
+            return;
         }
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         // Set UI elements
